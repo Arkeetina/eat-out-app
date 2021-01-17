@@ -1,6 +1,6 @@
-const Input = ({ value, onChange, type, ...props }) => {
+const Textarea = ({ value, onChange, type, ...props }) => {
   return (
-    <input
+    <textarea
       className="w-50 rounded-xl border border-gray-300"
       type={type}
       onChange={onChange}
@@ -10,4 +10,4 @@ const Input = ({ value, onChange, type, ...props }) => {
   );
 };
 
-export default Input;
+export default Textarea;

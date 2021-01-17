@@ -1,7 +1,7 @@
 import Head from "next/head";
 
-const Input = ({ value }) => {
+const Label = ({ value }) => {
   return <label>{value}</label>;
 };
 
-export default Input;
+export default Label;
