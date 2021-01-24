@@ -1,5 +1,4 @@
-// import { makeSchema, queryType, objectType, mutationType } from "nexus";
-import { queryType, makeSchema, objectType } from "nexus";
+import { queryType, makeSchema, objectType, mutationType } from "nexus";
 import { nexusSchemaPrisma } from "nexus-plugin-prisma/schema";
 import path from "path";
 
@@ -16,6 +15,8 @@ const EatOutSpot = objectType({
   name: "EatOutSpot",
   definition(t) {
     t.model.id();
+    t.model.url();
+    t.model.name();
     t.model.note();
   },
 });
@@ -27,8 +28,15 @@ const Query = queryType({
   },
 });
 
+const Mutation = mutationType({
+  definition(t) {
+    t.crud.createOneEatOutSpot();
+    t.crud.createOneUser();
+  },
+});
+
 export const schema = makeSchema({
-  types: { Query, User, EatOutSpot },
+  types: { Query, Mutation, User, EatOutSpot },
   plugins: [nexusSchemaPrisma({ experimentalCRUD: true })],
   outputs: {
     schema: path.join(process.cwd(), "schema.graphql"),

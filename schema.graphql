@@ -2,13 +2,50 @@
 ### Do not make changes to this file directly
 
 
+scalar DateTime
+
 type EatOutSpot {
   id: Int!
+  name: String
   note: String
+  url: String!
+}
+
+input EatOutSpotCreateInput {
+  author: UserCreateOneWithoutEatOutSpotsInput
+  createdAt: DateTime
+  name: String
+  note: String
+  updatedAt: DateTime
+  url: String!
+}
+
+input EatOutSpotCreateManyWithoutAuthorInput {
+  connect: [EatOutSpotWhereUniqueInput!]
+  connectOrCreate: [EatOutSpotCreateOrConnectWithoutauthorInput!]
+  create: [EatOutSpotCreateWithoutAuthorInput!]
+}
+
+input EatOutSpotCreateOrConnectWithoutauthorInput {
+  create: EatOutSpotCreateWithoutAuthorInput!
+  where: EatOutSpotWhereUniqueInput!
+}
+
+input EatOutSpotCreateWithoutAuthorInput {
+  createdAt: DateTime
+  name: String
+  note: String
+  updatedAt: DateTime
+  url: String!
 }
 
 input EatOutSpotWhereUniqueInput {
   id: Int
+}
+
+type Mutation {
+  createOneEatOutSpot(data: EatOutSpotCreateInput!): EatOutSpot!
+  createOneUser(data: UserCreateInput!): User!
 }
 
 type Query {
@@ -20,6 +57,32 @@ type User {
   email: String
   id: Int!
   name: String
+}
+
+input UserCreateInput {
+  createdAt: DateTime
+  eatOutSpots: EatOutSpotCreateManyWithoutAuthorInput
+  email: String
+  name: String
+  updatedAt: DateTime
+}
+
+input UserCreateOneWithoutEatOutSpotsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithouteatOutSpotsInput
+  create: UserCreateWithoutEatOutSpotsInput
+}
+
+input UserCreateOrConnectWithouteatOutSpotsInput {
+  create: UserCreateWithoutEatOutSpotsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutEatOutSpotsInput {
+  createdAt: DateTime
+  email: String
+  name: String
+  updatedAt: DateTime
 }
 
 input UserWhereUniqueInput {

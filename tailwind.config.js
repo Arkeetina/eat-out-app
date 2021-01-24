@@ -1,12 +1,18 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: [],
+  // future: {
+  //   removeDeprecatedGapUtilities: true,
+  //   purgeLayersByDefault: true,
+  // },
   theme: {
-    extend: {},
+    fontFamily: {
+      display: ["Inter", "system-ui", "sans-serif"],
+      body: ["Inter", "system-ui", "sans-serif"],
+    },
+    colors: {
+      rose: colors.rose,
+      white: "#fffff",
+    },
   },
-  variants: {},
-  plugins: [],
 };

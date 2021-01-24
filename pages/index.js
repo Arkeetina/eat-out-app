@@ -4,16 +4,18 @@ import LinkPreview from "../components/LinkPreview";
 import Input from "../components/Input";
 import Textarea from "../components/Textarea";
 import Label from "../components/Label";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
-    <div className="container">
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Eat out app</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
+        <Header />
         <form className="flex flex-col">
           <Label value="Name" />
           <Input />
