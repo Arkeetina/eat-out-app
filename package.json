@@ -11,7 +11,7 @@
     "@nexus/schema": "^0.20.1",
     "@prisma/client": "^2.13.1",
     "apollo-server-micro": "^2.19.1",
-    "autoprefixer": "^10.2.3",
+    "autoprefixer": "^10.2.4",
     "graphql": "^15.4.0",
     "next": "^10.0.5",
     "next-auth": "^3.1.0",
