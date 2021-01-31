@@ -52,7 +52,7 @@ export const schema = makeSchema({
     }),
   ],
   outputs: {
-    schema: path.join(process.cwd(), "src", "schema.ts"),
+    schema: path.join(process.cwd(), "pages", "api", "graphql.ts"),
     typegen: path.join(process.cwd(), "nexus.ts"),
   },
   sourceTypes: {
