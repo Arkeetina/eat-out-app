@@ -1,8 +1,9 @@
-const Textarea = ({ value, onChange, type, ...props }) => {
+const Textarea = ({ value, onChange, placeHolder, type, ...props }) => {
   return (
     <textarea
-      className="w-50 rounded-xl border border-gray-300"
+      className="flex-1 resize-none appearance-none  w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-lime-600 focus:border-transparent"
       type={type}
+      placeHolder={placeHolder}
       onChange={onChange}
       value={value}
       {...props}

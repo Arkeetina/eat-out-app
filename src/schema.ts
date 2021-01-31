@@ -37,6 +37,8 @@ const Mutation = mutationType({
 
 export const schema = makeSchema({
   types: { Query, Mutation, User, EatOutSpot },
+  shouldGenerateArtifacts: process.env.NODE_ENV === "development",
+  // CRUD won't work without this option!!!
   plugins: [nexusSchemaPrisma({ experimentalCRUD: true })],
   outputs: {
     schema: path.join(process.cwd(), "schema.graphql"),

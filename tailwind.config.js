@@ -7,12 +7,13 @@ module.exports = {
   // },
   theme: {
     fontFamily: {
-      display: ["Inter", "system-ui", "sans-serif"],
-      body: ["Inter", "system-ui", "sans-serif"],
+      sans: ["Graphik", "sans-serif"],
+      serif: ["Merriweather", "serif"],
     },
     colors: {
-      rose: colors.rose,
-      white: "#fffff",
+      lime: colors.lime,
+      gray: colors.gray,
+      white: `#ffffff`,
     },
   },
 };
