@@ -38,23 +38,28 @@ const Mutation = mutationType({
 export const schema = makeSchema({
   types: { Query, Mutation, User, EatOutSpot },
   shouldGenerateArtifacts: process.env.NODE_ENV === "development",
-  // CRUD won't work without this option!!!
-  plugins: [nexusSchemaPrisma({ experimentalCRUD: true })],
+  plugins: [
+    nexusSchemaPrisma({
+      experimentalCRUD: true,
+      outputs: {
+        typegen: path.join(
+          process.cwd(),
+          "src",
+          "generated",
+          "typegen-nexus-plugin-prisma.ts"
+        ),
+      },
+    }),
+  ],
   outputs: {
-    schema: path.join(process.cwd(), "schema.graphql"),
-    typegen: path.join(process.cwd(), "nexus.ts"),
+    schema: path.join(process.cwd(), "src", "generated", "schema.graphql"),
+    typegen: path.join(process.cwd(), "src", "generated", "nexus.type.ts"),
   },
-  typegenAutoConfig: {
-    contextType: "Context.Context",
-    sources: [
-      {
-        source: "@prisma/client",
-        alias: "prisma",
-      },
-      {
-        source: require.resolve("./context"),
-        alias: "Context",
-      },
-    ],
+  sourceTypes: {
+    modules: [{ module: "@prisma/client", alias: "PrismaClient" }],
+  },
+  contextType: {
+    module: path.join(process.cwd(), "src/context.ts"),
+    export: "Context",
   },
 });
