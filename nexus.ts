@@ -3,14 +3,12 @@
  * Do not make changes to this file directly
  */
 
-
-
-
+import { Context } from "./src/context";
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {
-    crud: NexusPrisma<TypeName, 'crud'>
-    model: NexusPrisma<TypeName, 'model'>
+    crud: NexusPrisma<TypeName, "crud">;
+    model: NexusPrisma<TypeName, "model">;
   }
 }
 
@@ -19,167 +17,192 @@ declare global {
 }
 
 export interface NexusGenInputs {
-  EatOutSpotCreateInput: { // input type
-    author?: NexusGenInputs['UserCreateOneWithoutEatOutSpotsInput'] | null; // UserCreateOneWithoutEatOutSpotsInput
-    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  EatOutSpotCreateInput: {
+    // input type
+    author?: NexusGenInputs["UserCreateOneWithoutEatOutSpotsInput"] | null; // UserCreateOneWithoutEatOutSpotsInput
+    createdAt?: NexusGenScalars["DateTime"] | null; // DateTime
     name?: string | null; // String
     note?: string | null; // String
-    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    updatedAt?: NexusGenScalars["DateTime"] | null; // DateTime
     url: string; // String!
-  }
-  EatOutSpotCreateManyWithoutAuthorInput: { // input type
-    connect?: NexusGenInputs['EatOutSpotWhereUniqueInput'][] | null; // [EatOutSpotWhereUniqueInput!]
-    connectOrCreate?: NexusGenInputs['EatOutSpotCreateOrConnectWithoutauthorInput'][] | null; // [EatOutSpotCreateOrConnectWithoutauthorInput!]
-    create?: NexusGenInputs['EatOutSpotCreateWithoutAuthorInput'][] | null; // [EatOutSpotCreateWithoutAuthorInput!]
-  }
-  EatOutSpotCreateOrConnectWithoutauthorInput: { // input type
-    create: NexusGenInputs['EatOutSpotCreateWithoutAuthorInput']; // EatOutSpotCreateWithoutAuthorInput!
-    where: NexusGenInputs['EatOutSpotWhereUniqueInput']; // EatOutSpotWhereUniqueInput!
-  }
-  EatOutSpotCreateWithoutAuthorInput: { // input type
-    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  };
+  EatOutSpotCreateManyWithoutAuthorInput: {
+    // input type
+    connect?: NexusGenInputs["EatOutSpotWhereUniqueInput"][] | null; // [EatOutSpotWhereUniqueInput!]
+    connectOrCreate?:
+      | NexusGenInputs["EatOutSpotCreateOrConnectWithoutauthorInput"][]
+      | null; // [EatOutSpotCreateOrConnectWithoutauthorInput!]
+    create?: NexusGenInputs["EatOutSpotCreateWithoutAuthorInput"][] | null; // [EatOutSpotCreateWithoutAuthorInput!]
+  };
+  EatOutSpotCreateOrConnectWithoutauthorInput: {
+    // input type
+    create: NexusGenInputs["EatOutSpotCreateWithoutAuthorInput"]; // EatOutSpotCreateWithoutAuthorInput!
+    where: NexusGenInputs["EatOutSpotWhereUniqueInput"]; // EatOutSpotWhereUniqueInput!
+  };
+  EatOutSpotCreateWithoutAuthorInput: {
+    // input type
+    createdAt?: NexusGenScalars["DateTime"] | null; // DateTime
     name?: string | null; // String
     note?: string | null; // String
-    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    updatedAt?: NexusGenScalars["DateTime"] | null; // DateTime
     url: string; // String!
-  }
-  EatOutSpotWhereUniqueInput: { // input type
+  };
+  EatOutSpotWhereUniqueInput: {
+    // input type
     id?: number | null; // Int
-  }
-  UserCreateInput: { // input type
-    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
-    eatOutSpots?: NexusGenInputs['EatOutSpotCreateManyWithoutAuthorInput'] | null; // EatOutSpotCreateManyWithoutAuthorInput
+  };
+  UserCreateInput: {
+    // input type
+    createdAt?: NexusGenScalars["DateTime"] | null; // DateTime
+    eatOutSpots?:
+      | NexusGenInputs["EatOutSpotCreateManyWithoutAuthorInput"]
+      | null; // EatOutSpotCreateManyWithoutAuthorInput
     email?: string | null; // String
     name?: string | null; // String
-    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
-  }
-  UserCreateOneWithoutEatOutSpotsInput: { // input type
-    connect?: NexusGenInputs['UserWhereUniqueInput'] | null; // UserWhereUniqueInput
-    connectOrCreate?: NexusGenInputs['UserCreateOrConnectWithouteatOutSpotsInput'] | null; // UserCreateOrConnectWithouteatOutSpotsInput
-    create?: NexusGenInputs['UserCreateWithoutEatOutSpotsInput'] | null; // UserCreateWithoutEatOutSpotsInput
-  }
-  UserCreateOrConnectWithouteatOutSpotsInput: { // input type
-    create: NexusGenInputs['UserCreateWithoutEatOutSpotsInput']; // UserCreateWithoutEatOutSpotsInput!
-    where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
-  }
-  UserCreateWithoutEatOutSpotsInput: { // input type
-    createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    updatedAt?: NexusGenScalars["DateTime"] | null; // DateTime
+  };
+  UserCreateOneWithoutEatOutSpotsInput: {
+    // input type
+    connect?: NexusGenInputs["UserWhereUniqueInput"] | null; // UserWhereUniqueInput
+    connectOrCreate?:
+      | NexusGenInputs["UserCreateOrConnectWithouteatOutSpotsInput"]
+      | null; // UserCreateOrConnectWithouteatOutSpotsInput
+    create?: NexusGenInputs["UserCreateWithoutEatOutSpotsInput"] | null; // UserCreateWithoutEatOutSpotsInput
+  };
+  UserCreateOrConnectWithouteatOutSpotsInput: {
+    // input type
+    create: NexusGenInputs["UserCreateWithoutEatOutSpotsInput"]; // UserCreateWithoutEatOutSpotsInput!
+    where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
+  };
+  UserCreateWithoutEatOutSpotsInput: {
+    // input type
+    createdAt?: NexusGenScalars["DateTime"] | null; // DateTime
     email?: string | null; // String
     name?: string | null; // String
-    updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
-  }
-  UserWhereUniqueInput: { // input type
+    updatedAt?: NexusGenScalars["DateTime"] | null; // DateTime
+  };
+  UserWhereUniqueInput: {
+    // input type
     email?: string | null; // String
     id?: number | null; // Int
-  }
+  };
 }
 
-export interface NexusGenEnums {
-}
+export interface NexusGenEnums {}
 
 export interface NexusGenScalars {
-  String: string
-  Int: number
-  Float: number
-  Boolean: boolean
-  ID: string
-  DateTime: any
+  String: string;
+  Int: number;
+  Float: number;
+  Boolean: boolean;
+  ID: string;
+  DateTime: any;
 }
 
 export interface NexusGenObjects {
-  EatOutSpot: { // root type
+  EatOutSpot: {
+    // root type
     id: number; // Int!
     name?: string | null; // String
     note?: string | null; // String
     url: string; // String!
-  }
+  };
   Mutation: {};
   Query: {};
-  User: { // root type
+  User: {
+    // root type
     email?: string | null; // String
     id: number; // Int!
     name?: string | null; // String
-  }
+  };
 }
 
-export interface NexusGenInterfaces {
-}
+export interface NexusGenInterfaces {}
 
-export interface NexusGenUnions {
-}
+export interface NexusGenUnions {}
 
-export type NexusGenRootTypes = NexusGenObjects
+export type NexusGenRootTypes = NexusGenObjects;
 
-export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
+export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars;
 
 export interface NexusGenFieldTypes {
-  EatOutSpot: { // field return type
+  EatOutSpot: {
+    // field return type
     id: number; // Int!
     name: string | null; // String
     note: string | null; // String
     url: string; // String!
-  }
-  Mutation: { // field return type
-    createOneEatOutSpot: NexusGenRootTypes['EatOutSpot']; // EatOutSpot!
-    createOneUser: NexusGenRootTypes['User']; // User!
-  }
-  Query: { // field return type
-    eatOutSpot: NexusGenRootTypes['EatOutSpot'] | null; // EatOutSpot
-    user: NexusGenRootTypes['User'] | null; // User
-  }
-  User: { // field return type
+  };
+  Mutation: {
+    // field return type
+    createOneEatOutSpot: NexusGenRootTypes["EatOutSpot"]; // EatOutSpot!
+    createOneUser: NexusGenRootTypes["User"]; // User!
+  };
+  Query: {
+    // field return type
+    eatOutSpot: NexusGenRootTypes["EatOutSpot"] | null; // EatOutSpot
+    user: NexusGenRootTypes["User"] | null; // User
+  };
+  User: {
+    // field return type
     email: string | null; // String
     id: number; // Int!
     name: string | null; // String
-  }
+  };
 }
 
 export interface NexusGenFieldTypeNames {
-  EatOutSpot: { // field return type name
-    id: 'Int'
-    name: 'String'
-    note: 'String'
-    url: 'String'
-  }
-  Mutation: { // field return type name
-    createOneEatOutSpot: 'EatOutSpot'
-    createOneUser: 'User'
-  }
-  Query: { // field return type name
-    eatOutSpot: 'EatOutSpot'
-    user: 'User'
-  }
-  User: { // field return type name
-    email: 'String'
-    id: 'Int'
-    name: 'String'
-  }
+  EatOutSpot: {
+    // field return type name
+    id: "Int";
+    name: "String";
+    note: "String";
+    url: "String";
+  };
+  Mutation: {
+    // field return type name
+    createOneEatOutSpot: "EatOutSpot";
+    createOneUser: "User";
+  };
+  Query: {
+    // field return type name
+    eatOutSpot: "EatOutSpot";
+    user: "User";
+  };
+  User: {
+    // field return type name
+    email: "String";
+    id: "Int";
+    name: "String";
+  };
 }
 
 export interface NexusGenArgTypes {
   Mutation: {
-    createOneEatOutSpot: { // args
-      data: NexusGenInputs['EatOutSpotCreateInput']; // EatOutSpotCreateInput!
-    }
-    createOneUser: { // args
-      data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
-    }
-  }
+    createOneEatOutSpot: {
+      // args
+      data: NexusGenInputs["EatOutSpotCreateInput"]; // EatOutSpotCreateInput!
+    };
+    createOneUser: {
+      // args
+      data: NexusGenInputs["UserCreateInput"]; // UserCreateInput!
+    };
+  };
   Query: {
-    eatOutSpot: { // args
-      where: NexusGenInputs['EatOutSpotWhereUniqueInput']; // EatOutSpotWhereUniqueInput!
-    }
-    user: { // args
-      where: NexusGenInputs['UserWhereUniqueInput']; // UserWhereUniqueInput!
-    }
-  }
+    eatOutSpot: {
+      // args
+      where: NexusGenInputs["EatOutSpotWhereUniqueInput"]; // EatOutSpotWhereUniqueInput!
+    };
+    user: {
+      // args
+      where: NexusGenInputs["UserWhereUniqueInput"]; // UserWhereUniqueInput!
+    };
+  };
 }
 
-export interface NexusGenAbstractTypeMembers {
-}
+export interface NexusGenAbstractTypeMembers {}
 
-export interface NexusGenTypeInterfaces {
-}
+export interface NexusGenTypeInterfaces {}
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
@@ -199,14 +222,14 @@ export type NexusGenAbstractsUsingStrategyResolveType = never;
 
 export type NexusGenFeaturesConfig = {
   abstractTypeStrategies: {
-    isTypeOf: false
-    resolveType: true
-    __typename: false
-  }
-}
+    isTypeOf: false;
+    resolveType: true;
+    __typename: false;
+  };
+};
 
 export interface NexusGenTypes {
-  context: any;
+  context: Context;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   inputTypeShapes: NexusGenInputs & NexusGenEnums & NexusGenScalars;
@@ -221,26 +244,36 @@ export interface NexusGenTypes {
   interfaceNames: NexusGenInterfaceNames;
   scalarNames: NexusGenScalarNames;
   unionNames: NexusGenUnionNames;
-  allInputTypes: NexusGenTypes['inputNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['scalarNames'];
-  allOutputTypes: NexusGenTypes['objectNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['unionNames'] | NexusGenTypes['interfaceNames'] | NexusGenTypes['scalarNames'];
-  allNamedTypes: NexusGenTypes['allInputTypes'] | NexusGenTypes['allOutputTypes']
-  abstractTypes: NexusGenTypes['interfaceNames'] | NexusGenTypes['unionNames'];
+  allInputTypes:
+    | NexusGenTypes["inputNames"]
+    | NexusGenTypes["enumNames"]
+    | NexusGenTypes["scalarNames"];
+  allOutputTypes:
+    | NexusGenTypes["objectNames"]
+    | NexusGenTypes["enumNames"]
+    | NexusGenTypes["unionNames"]
+    | NexusGenTypes["interfaceNames"]
+    | NexusGenTypes["scalarNames"];
+  allNamedTypes:
+    | NexusGenTypes["allInputTypes"]
+    | NexusGenTypes["allOutputTypes"];
+  abstractTypes: NexusGenTypes["interfaceNames"] | NexusGenTypes["unionNames"];
   abstractTypeMembers: NexusGenAbstractTypeMembers;
   objectsUsingAbstractStrategyIsTypeOf: NexusGenObjectsUsingAbstractStrategyIsTypeOf;
   abstractsUsingStrategyResolveType: NexusGenAbstractsUsingStrategyResolveType;
   features: NexusGenFeaturesConfig;
 }
 
-
 declare global {
-  interface NexusGenPluginTypeConfig<TypeName extends string> {
-  }
-  interface NexusGenPluginFieldConfig<TypeName extends string, FieldName extends string> {
-  }
-  interface NexusGenPluginInputFieldConfig<TypeName extends string, FieldName extends string> {
-  }
-  interface NexusGenPluginSchemaConfig {
-  }
-  interface NexusGenPluginArgConfig {
-  }
+  interface NexusGenPluginTypeConfig<TypeName extends string> {}
+  interface NexusGenPluginFieldConfig<
+    TypeName extends string,
+    FieldName extends string
+  > {}
+  interface NexusGenPluginInputFieldConfig<
+    TypeName extends string,
+    FieldName extends string
+  > {}
+  interface NexusGenPluginSchemaConfig {}
+  interface NexusGenPluginArgConfig {}
 }
