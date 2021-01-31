@@ -52,8 +52,8 @@ export const schema = makeSchema({
     }),
   ],
   outputs: {
-    schema: path.join(process.cwd(), "schema.graphql"),
-    typegen: path.join(process.cwd(), "next-env.d.ts"),
+    schema: path.join(process.cwd(), "src", "schema.graphql"),
+    typegen: path.join(process.cwd(), "nexus.ts"),
   },
   sourceTypes: {
     modules: [{ module: "@prisma/client", alias: "PrismaClient" }],
