@@ -4,8 +4,12 @@ import Input from "../components/Input";
 import Textarea from "../components/Textarea";
 import LinkPreview from "../components/LinkPreview";
 import Header from "../components/Header";
+import Button from "../components/Button";
+import { useState } from "react";
 
 export default function Home() {
+  const [eatoutPlaceList, setEatOutPlaceList] = useState([]);
+  const [newPlace, setNewPlace] = useState({ url: "", name: "", note: "" });
   return (
     <div>
       <Head>
@@ -17,18 +21,54 @@ export default function Home() {
         <Header />
         <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
           <div>
-            <form className="flex flex-col">
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                const newValue = [...eatoutPlaceList, newPlace];
+
+                setEatOutPlaceList(newValue);
+                setNewPlace({ url: "", name: "", note: "" });
+              }}
+              className="flex flex-col"
+            >
               <div className="mt-4 mb-4">
                 <h2 className="text-3xl text-gray-800">Add new place</h2>
               </div>
               <div className="mt-2 mb-2">
-                <Input placeHolder="Name" />
+                <Input
+                  onChange={(event) =>
+                    setNewPlace({ ...newPlace, name: event.target.value })
+                  }
+                  value={newPlace.name}
+                  placeHolder="Name"
+                />
               </div>
               <div className="mt-2 mb-2">
-                <Input placeHolder="Url" />
+                <Input
+                  onChange={(event) =>
+                    setNewPlace({ ...newPlace, url: event.target.value })
+                  }
+                  value={newPlace.url}
+                  placeHolder="Url"
+                />
               </div>
               <div className="mt-2 mb-2">
-                <Textarea rows="4" cols="30" placeHolder="Note" />
+                <Textarea
+                  rows="4"
+                  cols="30"
+                  onChange={(event) =>
+                    setNewPlace({ ...newPlace, note: event.target.value })
+                  }
+                  value={newPlace.note}
+                  placeHolder="Note"
+                />
+              </div>
+              <div className="mt-2 mb-2">
+                <Button
+                  onClick={() => {}}
+                  type="submit"
+                  label={<span>Add</span>}
+                />
               </div>
             </form>
           </div>
@@ -36,18 +76,18 @@ export default function Home() {
             <div className="mt-4 mb-4">
               <h2 className="text-3xl text-gray-800">Saved places</h2>
             </div>
-            <div className="relative  shadow-lg flex leading-none rounded-lg p-4">
-              <div className="bg-white overflow-hidden flex w-full">
-                <div>
-                  <p className="mt-4 mb-4 font-bold">Meno male</p>
-                  <p className="mt-4 mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                  <LinkPreview url="http://www.menomale.se/" />
-                </div>
-              </div>
+            <div className="relative flex flex-col">
+              {eatoutPlaceList.map(({ name, url, note }) => {
+                return (
+                  <div className="relative mb-4 shadow-lg flex flex-col  leading-none rounded-lg p-4">
+                    <div className="bg-white overflow-hidden flex flex-col w-full">
+                      <p className="mt-4 mb-4 font-bold">{name}</p>
+                      <p className="mt-4 mb-4">{note}</p>
+                      <LinkPreview url={url} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ const Header = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="white"
-                ariaHidden="true"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -50,11 +50,11 @@ const Header = () => {
               <span className="text-shadow-md">Eat Out App</span>
             </div>
           </div>
-          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-end">
+          {/* <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-end">
             <div className="flex-shrink-0 text-lg  uppercase text-white flex items-center">
               <span className="text-shadow-md font-semibold">Login</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
